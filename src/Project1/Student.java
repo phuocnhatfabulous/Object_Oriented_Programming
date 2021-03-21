@@ -11,7 +11,15 @@ public class Student extends Person {
 	public Student() {
 		super();
 	}
-
+	
+	@Override
+	public void xuatThongtin() {
+		// TODO Auto-generated method stub
+		super.xuatThongtin();
+		System.out.print("Ma so sinh vien: "+ mssv + "; Diem: "+diem +"; Mail: "+ mail);
+		System.err.println("");
+	}
+	
 	@Override
 	public void nhapThongtin() {
 		super.nhapThongtin(); //Ke thua thong tin tu Person
@@ -54,11 +62,11 @@ public class Student extends Person {
 	}
 
 	public boolean setMssv(String mssv) {
-		if(mssv != null && mssv.length()== 8) {//Dieu kien mssv la 8 kitu
+		if(mssv != null && mssv.length()== 10) {//Dieu kien mssv la 8 kitu
 			this.mssv = mssv;
 			return true;
 		}else {
-			System.err.println("Nhap lai ma so sinh vien: ");
+			System.err.println("Nhap lai ma so sinh vien (10 ki tu): ");
 			return false;
 		}
 	}
@@ -82,7 +90,7 @@ public class Student extends Person {
 	}
 
 	public boolean setMail(String mail) {
-		if(mail != null && mail.contains("@") && !mail.contains(" ")) {
+		if(mail != null && mail.contains("@gmail.com") && !mail.contains(" ")) {
 			this.mail = mail;
 			return true;
 		}
