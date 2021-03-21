@@ -16,6 +16,7 @@ public class Person {
 		this.diachi = diachi;
 	}
 	
+	
 	public void nhapThongtin() {
 		Scanner nhap = new Scanner(System.in);
 		System.out.println("Nhap ten: ");
