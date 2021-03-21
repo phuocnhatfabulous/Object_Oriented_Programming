@@ -23,12 +23,13 @@ public class Main {
 				int n;
 				System.out.println("Nhap so sinh vien can them: ");
 				n = Integer.parseInt(sc.nextLine());
-				for(int i = 0; i<10; i++) {
+				for(int i = 0; i<n; i++) {
 					Student std = new Student();
 					std.nhapThongtin();
 					
 					studentList.add(std);
 				}
+				break;
  			case 2:
  				for(int i = 0; i <  studentList.size(); i++) {
  					studentList.get(i).xuatThongtin();
@@ -81,9 +82,9 @@ public class Main {
 					 public int compare(Student o1, Student o2) {
 						int cmp = o1.getTen().compareTo(o2.getTen());
 						if(cmp >= 0) {
-							return -1;
+							return 1;
 						}
-						return 1;
+						return -1;
 					};
 				});
 				 //Step2: Hien thi  
@@ -92,7 +93,17 @@ public class Main {
 				}
 				break;
 			case 6:
-				
+				Collections.sort(studentList, new Comparator<Student>() {
+					@Override
+					 public int compare(Student o1, Student o2) {
+						return o1.getDiem() >= o2.getDiem()?-1:1;   					};
+				});
+				 //Step2: Hien thi  
+				for (int i = 0; i < studentList.size(); i++) {
+					if(studentList.get(i).KtraHocBong()) {
+						studentList.get(i).xuatThongtin();
+					}
+				}
 				break;
 			case 7: 
 				System.out.println("Chuong trinh da thoat ");
@@ -106,7 +117,7 @@ public class Main {
 	}
 	
 	static void showMenu() {
-		System.out.println("1. Nhap so luong sinh vien");
+		System.out.println("\n1. Nhap thong tin sinh vien");
 		System.out.println("2. Hien thi thong tin sinh vien");
 		System.out.println("3. Hien thi max, min theo diem trung binh");
 		System.out.println("4. Tim kiem theo ma so sinh vien");
